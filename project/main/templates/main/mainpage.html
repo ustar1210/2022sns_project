@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS 메인페이지</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 40px 60px;
+            text-align: right;
+        }
+        footer {
+        }
+        footer .container{
+            padding: 20px 10px;
+            border-top: black 2px solid;
+        }
+        .grid-column-4{
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        footer > .container > div{
+            text-align:right;
+            padding:0px 10px;
+            border-right:black 2px solid;
+        }
+        footer > .container > div > div{
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>안유성</h1>
+    </header>
+    <content></content>
+    <footer>
+        <div class="container grid-column-4">
+            <div class="instagram">
+                <h3>Instagram</h3>
+                <div>
+                    <div><a href="https://www.instagram.com/ustar1210/" target=”_blank”>일상 인스타그램 계정</a></div>
+                    <div><a href="https://www.instagram.com/usfork/" target=”_blank”>음악평론 인스타그램 계정</a></div>
+                </div>
+            </div>
+            <div class="facebook">
+                <h3>Facebook</h3>
+                <div>
+                    <div><a href="https://www.facebook.com/profile.php?id=100003656653600" target=”_blank”>안 쓰는 페이스북 계정</a></div>
+            
+                </div>
+            </div>
+            <div class="link">
+                <h3>목차</h3>
+                <div>
+                    <div><a href="introduction/">안유성의 tmi 보러가기</a></div>
+                </div>
+            </div>
+            <div class="empty"></div>
+        </div>
+    </footer>
+</body>
+</html>
