@@ -1,0 +1,112 @@
+*{
+    margin:0 auto;
+    padding:0;
+}
+h1{
+    display:inline-block;
+    padding: 0 20px;
+    font-size: 40px;
+}
+h3{
+    font-size: 24px;
+}
+h4 {
+    font-size: 20px;
+}
+hr{
+    background-color:black;
+}
+header{
+    width: 80%;
+    
+}
+header .container {
+    margin: 0 0 0 auto;
+    padding: 40px 0 20px;
+    width: 300px;
+    text-align:right;
+}
+div.content {
+    margin: 20px auto;
+    width: 80%;
+}
+.box {
+    padding: 20px;
+}
+.picbox {
+    display:inline-block;
+    position: relative;
+    overflow: hidden;
+    height:0;
+}
+.padding56 {
+    padding-top: 120%;
+    width: 100%;
+}
+.padding100 {
+    padding-top: 100%;
+    width: 100%;
+}
+.pic {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+}
+.pic img{
+    display:inline-block;
+    position: absolute;
+    top:0;
+    left:0;
+    left:50%;
+    width:100%;
+    transform: translate(-50%,0)
+}
+.padding56 img{
+    top:-20%;
+}
+#me img{
+    top:-20px;
+}
+.description{
+    display:inline-block;
+    padding: 20px 0px;
+}
+.name {
+    font-weight: bold;
+}
+#music .description{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+
+}
+
+#taste .description{
+    padding: 40px 0px 0px 0px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+}
+.food{
+    text-align:center;
+}
+.album{
+    border:1px black;
+    width:100%;
+    text-align:center;
+}
+.kind{
+    font-weight:bold;
+}
+#profile .description{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+#instagram{
+    display:inline-block;
+}
+.text{
+    margin: auto;
+}

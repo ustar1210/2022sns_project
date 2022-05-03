@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style&js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_introduction.css' %}">
+{% endblock %}
+{% block content %}
+
+<div id="profile" class="box">
+    <div class="title">
+        <h3>Profile</h3>
+    </div>
+    <hr>
+    <div class="description">
+        <div class="picbox padding56">
+            <div class="pic">
+                <img src="{% static 'images/me_with_alpaca.jpg' %}">
+            </div>
+        </div>
+        <div class="text">
+            <h4>안유성</h4>
+            <br>
+            <p>1999.12.10</p>
+            <p>동국대학교 전자전기공학부</p>
+            <p>ECR 31기</p>
+            <p>멋쟁이사자처럼 10기</p>
+        </div>
+    </div>
+</div>
+<div id="education" class="box">
+    <div class="title">
+        <h3>Education</h3>
+    </div>
+    <hr>
+    <div class="description">
+        <ul>
+            <li>금곡초등학교 졸업</li>
+            <li>솔빛중학교 졸업</li>
+            <li>예당고등학교 졸업</li>
+            <li>동국대학교 재학 중</li> 
+        </ul>    
+    </div>
+</div>
+<div id="taste" class="box">
+    <div class="title">
+        <h3>Taste</h3>
+    </div>
+    <hr>
+    <div class="description">
+        <div id="snack" class="food">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/pringles.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Snack</div>
+            <div class="item">Pringles</div>
+        </div> 
+        <div id="beer" class="food">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/budweiser.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Beer</div>
+            <div class="item">Budweiser</div>
+        </div>
+        <div id="bread" class="food">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/papajohns.png' %}">
+                </div>
+            </div>
+            <div class="kind">Pizza</div>
+            <div class="item">Papajohn's</div>
+        </div>  
+    </div>
+</div>
+<div id="music" class="box">
+    <div class="title">
+        <h3>Music</h3>
+    </div>
+    <hr>
+    <div class="description">
+        <div id="pop" class="album">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/Peach-Pit-from-2-to-3-artwork.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Pop</div>
+            <div class="item">From 2 to 3</div>
+        </div> 
+        <div id="rock" class="album"> 
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/blueweekend.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Rock</div>
+            <div class="item">Blue Weekend</div>
+        </div>
+        <div id="hiphop" class="album">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/blonde.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Hiphop</div>
+            <div class="item">Blonde</div>
+        </div>
+        <div id="folk" class="album">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/the_party.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Folk</div>
+            <div class="item">The Party</div>
+        </div>
+        <div id="instrumental" class="album">
+            <div class="picbox padding100">
+                <div class="pic">
+                    <img src="{% static 'images/fkj.jpg' %}">
+                </div>
+            </div>
+            <div class="kind">Instrumental</div>
+            <div class="item">French Kiwi Juice</div>
+        </div>  
+    </div>
+</div>
+{% endblock %}

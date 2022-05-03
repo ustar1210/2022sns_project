@@ -1,0 +1,7 @@
+div.index_message {
+    text-align:center;
+    padding: 80px;
+}
+div.index_message > *{
+    margin:8px;
+}

@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header {
+    padding: 40px 60px;
+    text-align: right;
+}
+footer .container{
+    padding: 20px 10px;
+    border-top: black 2px solid;
+}
+.grid-column-4{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+footer > .container > div{
+    text-align:right;
+    padding:0px 10px;
+    border-right:black 2px solid;
+}
+footer > .container > div > div{
+    margin: 8px 0;
+}

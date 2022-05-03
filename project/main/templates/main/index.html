@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style&js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="index_message">
+        <h3>아직은 누추한 곳에 방문해주셔서 감사합니다.</h3>
+        <hr>
+        <p>과제를 열심히 하다 보면 나중에 더 보여드릴게 있겠죠?</p>
+        <p>그 때까지 이 곳은 제 연습장입니다.</p>
+        <p>이것 저것 열심히 연습해 보겠습니다.</p>
+        <hr>
+        <h4>혹시라도 제가 궁금하신거라면 메뉴의 'tmi보러가기'로 이동해주세요.</h4>
+    </div>
+</section>
+{% endblock %}
