@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+a {
+    text-decoration:none;
+    color: black;
+}
 header {
     padding: 40px 60px;
     text-align: right;
@@ -9,6 +13,13 @@ header {
 }
 header h1 {
     font-size: 48px;
+}
+content {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+div.content {
+    padding: 24px;
 }
 footer .container{
     padding: 20px 10px;

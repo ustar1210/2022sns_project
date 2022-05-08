@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style&js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="posts">
+        <div class="post">
+            <h2>{{post.title}}</h2>
+            <h5>{{post.writer}}</h5>
+            <h5>{{ post.pub_date}}</h5>
+            <br>
+            <p>{{post.body}}</p>
+            <br>
+        </div>
+    </div>    
+</section>
+{% endblock %}
