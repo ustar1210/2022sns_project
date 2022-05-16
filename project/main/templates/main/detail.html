@@ -8,12 +8,22 @@
 <section>
     <div class="posts">
         <div class="post">
-            <h2>{{post.title}}</h2>
-            <h5>{{post.writer}}</h5>
-            <h5>{{ post.pub_date}}</h5>
+            <h2>{{ post.title }}</h2>
+            <h5>{{ post.writer }}</h5>
+            <h5>{{ post.pub_date }}</h5>
             <br>
+            {% if post.image %}
+                <div class="picBox pd56">
+                    <div class="pic">
+                        <p><img src="{{ post.image.url }}" alt="사진"></p>
+                    </div>
+                </div>
+                <br>
+            {% endif %}
             <p>{{post.body}}</p>
             <br>
+            <a href="{% url 'main:edit' post.id %}"><strong>수정하기 &nbsp</strong></a>
+            <a href="{% url 'main:delete' post.id %}"><strong>삭제하기</strong></a>
         </div>
     </div>    
 </section>

@@ -7,3 +7,20 @@ div.index_message > *{
 div.content > section > *{
     margin: 40px 0;
 }
+div.picBox{
+    position:relative;
+    width:100%;
+    height:0;
+    }
+.pd56{
+    padding-top:56.25%;
+}
+div.pic{
+    position:absolute;
+    top:0;
+    width:100%;
+}
+.pic > p, img{
+    position: relative;
+    width:100%;
+}

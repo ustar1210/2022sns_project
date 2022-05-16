@@ -7,13 +7,13 @@
 {% block content %}
 <section>
     <div class="new">
-        <h2><a href="{%url 'new'%}">글쓰기</a></h2>
+        <h2><a href="{%url 'main:new'%}">글쓰기</a></h2>
     </div>
 
     <div class="posts">
         {% for post in posts %}
         <div class="post">
-            <h2><a href="{% url 'detail' post.id %}">{{post.title}}</a></h2>
+            <h2><a href="{% url 'main:detail' post.id %}">{{post.title}}</a></h2>
             <h5>{{post.writer}}</h5>
             <h5>{{post.pub_date}}</h5>
             <br>
