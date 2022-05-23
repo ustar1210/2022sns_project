@@ -1,0 +1,37 @@
+section {
+    text-align: center;
+    padding: 40px;
+    width:60%;
+    margin: auto;
+}
+section.messages{
+    text-align: center;
+}
+form {
+    position: relative;
+}
+form > button{
+    position: relative;
+}
+section > p {
+    line-height: 36px;
+}
+section > h1{
+    margin: 8px 0px 48px;
+
+}
+section > h2{
+    margin: 40px 0px 48px;
+
+}
+section.emails fieldset{
+    margin: 16px;
+    padding: 20px;
+}
+fieldset > div {
+    margin: 12px;
+}
+.add_email > button {
+    margin: 12px;
+    display: inline-block;
+}

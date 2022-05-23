@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style&js %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="new">
+        <h2><a href="{%url 'main:new'%}">글 쓰기</a></h2>
+    </div>
+    <h1>{{user.username}}</h1>
+    <div>
+    {% if posts %}
+
+    {% for post in posts %}
+        <a href="{% url 'main:detail' post.id %}">{{.title}}</a><hr>
+    {% endfor %}
+    
+    {% else %}
+        <div class="nonmessage">
+            <h4>포스팅한 게시물이 없습니다!</h4>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

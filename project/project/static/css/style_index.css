@@ -24,3 +24,7 @@ div.pic{
     position: relative;
     width:100%;
 }
+.nonmessage {
+    padding: 80px;
+    text-align: center;    
+}

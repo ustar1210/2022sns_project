@@ -1,3 +1,36 @@
+{% load i18n %}
+
+{% block content %}
 <header>
-    <h1>안유성의 TMI 페이지</h1>
+    <div class="container grid-column-12">
+        <div class="title grid-1">
+            <h1>안유성의 TMI 페이지</h1>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="mypage grid-10_11">
+            <a href="{% url 'users:mypage' %}">Mypage</a>
+            <a href="{% url 'account_email' %}">Change e-mail</a>
+        </div>
+        <div class="login grid-12">
+            
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <button type="submit">{% trans 'Sign Out' %}</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="login grid-11">
+            <a href="{% url 'account_login' %}">로그인</a>
+        </div>
+        <div class="signup grid-12">
+            <a href="{% url 'account_signup' %}">회원가입</a> 
+        </div>
+        {% endif %}
+    </div>
 </header>
+
+
+{% endblock %}

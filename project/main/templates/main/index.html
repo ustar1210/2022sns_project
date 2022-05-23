@@ -7,9 +7,11 @@
 {% block content %}
 <section>
     <div class="new">
-        <h2><a href="{%url 'main:new'%}">글쓰기</a></h2>
+        <h2><a href="{%url 'main:new'%}">글 쓰기</a></h2>
     </div>
 
+    {% if user.is_authenticated %}
+    <h2>글 목록</h2>
     <div class="posts">
         {% for post in posts %}
         <div class="post">
@@ -22,6 +24,11 @@
         </div>
         {% endfor %}
     </div>    
+    {% else %}
+    <div class="nonmessage">
+        <h4>로그인을 먼저 해주세요.</h4>
+    </div>
+    {% endif %}
     
     <div class="index_message">
         <h4>혹시라도 제가 궁금하신거라면 메뉴의 'tmi보러가기'로 이동해주세요.</h4>
