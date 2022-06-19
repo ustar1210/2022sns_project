@@ -8,8 +8,17 @@
 <section>
     <div class="posts">
         <div class="post">
-            <h2>{{ post.title }}</h2>
-            <h5>{{ post.writer }}</h5>
+            <h1>{{post.title}}</h1>
+            {% if post.writer %}
+                {% if 'user' in post.writer.username %}
+                    <h3>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h3>
+                {% else %}
+                    <h3>작성자 : {{ post.writer }}</h3>
+                {% endif %}
+            {% else %}
+                <h3>작성자 : 알 수 없음</h3>
+            {% endif %}
+
             <h5>{{ post.pub_date }}</h5>
             <br>
             {% if post.image %}
@@ -24,6 +33,27 @@
             <br>
             <a href="{% url 'main:edit' post.id %}"><strong>수정하기 &nbsp</strong></a>
             <a href="{% url 'main:delete' post.id %}"><strong>삭제하기</strong></a>
+            
+            <hr>
+            <div>
+                <form action="{%url 'main:create_comment' post.id%}" method="POST">
+                    {%csrf_token%}
+                    <textarea name="content" placeholder="댓글내용입력"></textarea>
+                    <input type="submit" value="확인">
+                </form>
+            </div>
+            <hr>
+            <div>
+                {% for comment in comments %}
+                <div>
+                    <h4>작성자 : {{comment.writer}}</h4>
+                    <p>{{comment.content}}</p>
+                    <a href="{% url 'main:edit_comment' post.id comment.id %}"><strong>수정하기 &nbsp</strong></a>
+                    <a href="{% url 'main:delete_comment' post.id comment.id %}"><strong>삭제하기</strong></a>
+                    <br><hr>
+                </div>
+                {% endfor %}
+            </div>  
         </div>
     </div>    
 </section>

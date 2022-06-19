@@ -27,4 +27,9 @@ urlpatterns = [
     path('update/<int:id>', update, name="update"),
     path('delete/<int:id>', delete, name="delete"),
     path('users/',include('users.urls')),
+    path('<str:post_id>/create_comment/', create_comment, name="create_comment"),
+    path('<str:post_id>/edit_comment/<str:comment_id>', edit_comment, name="edit_comment"),
+    path('<str:post_id>/update_comment/<str:comment_id>', update_comment, name="update_comment"),
+    path('<str:post_id>/delete_comment/<str:comment_id>', delete_comment, name="delete_comment"),
+
 ]

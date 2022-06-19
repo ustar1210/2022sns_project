@@ -7,9 +7,17 @@ class Post(models.Model):
     pub_date = models.DateTimeField()
     body = models.TextField()
     image = models.ImageField(upload_to = "post/", blank=True, null=True)
-
     def __str__(self):
         return self.title
     
     def summary(self):
         return self.body[:20]
+
+class Comment(models.Model):
+    content = models.TextField()
+    writer = models.ForeignKey(User, on_delete = models.CASCADE)
+    post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name='comments')
+    created_at = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return self.content
