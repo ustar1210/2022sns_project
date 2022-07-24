@@ -6,40 +6,28 @@
 
 {% block content %}
 <section>
+     {% if user.username == 'an' %}
     <div class="new">
         <h2><a href="{%url 'main:new'%}">글 쓰기</a></h2>
     </div>
-
-    {% if user.is_authenticated %}
-    <h2>글 목록</h2>
+    {% else %}
+    <h3>관리자만 글을 작성할 수 있습니다.</h3>
+    {% endif %}
+    <h2>Album Review</h2>
     <div class="posts">
         {% for post in posts %}
-        <div class="post">
-            <h2><a href="{% url 'main:detail' post.id %}">{{post.title}}</a></h2>
-            {% if post.writer %}
-                {% if 'user' in post.writer.username %}
-                    <h5>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h5>
-                {% else %}
-                    <h5>작성자 : {{ post.writer }}</h5>
+        <div class="card" style="width: 18rem;">
+            <a href="{% url 'main:detail' post.id %}">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="...">
                 {% endif %}
-            {% else %}
-                <h5>작성자 : 알 수 없음</h5>
-            {% endif %}
-            <h5>{{post.pub_date}}</h5>
-            <br>
-            <p>{{post.summary}}</p>
-            <br>
-        </div>
+                <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.summary}}...</p>
+                </div>
+            </a>
+          </div>
         {% endfor %}
     </div>    
-    {% else %}
-    <div class="nonmessage">
-        <h4>로그인을 먼저 해주세요.</h4>
-    </div>
-    {% endif %}
-    
-    <div class="index_message">
-        <h4>혹시라도 제가 궁금하신거라면 메뉴의 'tmi보러가기'로 이동해주세요.</h4>
-    </div>
 </section>
 {% endblock %}

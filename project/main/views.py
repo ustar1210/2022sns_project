@@ -1,18 +1,37 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Comment
+from .models import Post, Comment, Like, Dislike, Guestbook
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 # Create your views here
+from django.views.decorators.http import require_POST
+from django.http import HttpResponse
+import json
+
+
 def showindex(request):
     posts = Post.objects.all()
-    return render(request, 'main/index.html',{'posts':posts})
+    guestbooks = Guestbook.objects.all()
+    return render(request, 'main/index.html',{
+        'posts':posts,
+        'guestbooks': guestbooks,
 
+        })
+ 
 def showintroduction(request):
-    return render(request, 'main/introduction.html')
+    guestbooks = Guestbook.objects.all()
+    return render(request, 'main/introduction.html', {
+        'guestbooks': guestbooks,
+    })
 
 def detail(request, id):
     post = get_object_or_404(Post, pk = id)
+    guestbooks = Guestbook.objects.all()
     all_comments = post.comments.all().order_by('-created_at')
-    return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})
+    return render(request, 'main/detail.html', {
+        'post':post, 
+        'comments':all_comments, 
+        'guestbooks': guestbooks,
+        })
 
 def new(request):
     return render(request, 'main/new.html')
@@ -72,3 +91,52 @@ def delete_comment(request , post_id, comment_id):
     delete_comment = Comment.objects.get(id = comment_id)
     delete_comment.delete()
     return redirect('main:detail', target_post.id)
+
+@require_POST
+@login_required
+def like_toggle(request, post_id):
+    post = get_object_or_404(Post, pk = post_id)
+    post_like, post_like_created = Like.objects.get_or_create(user=request.user, post=post)
+
+    if not post_like_created:
+        post_like.delete()
+        result = "like_cancel"
+    else:
+        result = "like"
+    context = {
+        "like_count" : post.like_count,
+        "result" : result
+    }
+    return HttpResponse(json.dumps(context), content_type = "application/json")
+
+@require_POST
+@login_required
+def dislike_toggle(request, post_id):
+    post = get_object_or_404(Post, pk = post_id)
+    post_dislike, post_dislike_created = Dislike.objects.get_or_create(user=request.user, post=post)
+
+    if not post_dislike_created:
+        post_dislike.delete()
+        result = "dislike_cancel"
+    else:
+        result = "dislike"
+    context = {
+        "dislike_count" : post.dislike_count,
+        "result" : result
+    }
+    return HttpResponse(json.dumps(context), content_type = "application/json")
+
+
+
+def create_guestbook(request):
+    guestbook = Guestbook()
+    guestbook.writer = request.user
+    guestbook.pub_date = timezone.now()
+    guestbook.body = request.POST['body']
+    guestbook.save()
+    return redirect('main:index')
+
+def delete_guestbook(request , id):
+    delete_guestbook = Guestbook.objects.get(id = id)
+    delete_guestbook.delete()
+    return redirect('main:index')

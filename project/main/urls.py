@@ -31,5 +31,7 @@ urlpatterns = [
     path('<str:post_id>/edit_comment/<str:comment_id>', edit_comment, name="edit_comment"),
     path('<str:post_id>/update_comment/<str:comment_id>', update_comment, name="update_comment"),
     path('<str:post_id>/delete_comment/<str:comment_id>', delete_comment, name="delete_comment"),
+    path('create_guestbook/', create_guestbook, name="create_guestbook"),
+    path('delete_comment/<int:id>', delete_guestbook, name="delete_guestbook"),
 
 ]

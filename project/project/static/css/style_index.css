@@ -1,3 +1,7 @@
+
+section {
+    text-align: center;
+}
 div.index_message {
     text-align:center;
 }
@@ -9,22 +13,30 @@ div.content > section > *{
 }
 div.picBox{
     position:relative;
-    width:100%;
+    width:30%;
     height:0;
+    margin: 0 auto;
     }
-.pd56{
-    padding-top:56.25%;
+.pd100{
+    padding-top:36%;
 }
 div.pic{
     position:absolute;
     top:0;
-    width:100%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translateX(-50%);
 }
 .pic > p, img{
     position: relative;
     width:100%;
 }
-.nonmessage {
-    padding: 80px;
-    text-align: center;    
+.posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.card a {
+    text-decoration: none;
+    color: black;
 }

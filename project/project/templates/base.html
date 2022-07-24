@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNS 메인페이지</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style_base.css' %}">
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     {% block style&js %}
     {% endblock %}
 </head>
@@ -14,12 +22,43 @@
     {% include 'shared/_header.html' %}
 
     <content>
-        <div class="empty"></div>
         <div class="content">
         {% block content %}
         {% endblock %}
         </div>
-        <div class="empty"></div>
+        <div class="guestbook">
+            <h2>Guest Book</h2>
+            <div class="guestbooks">
+                <hr>
+                {% for g in guestbooks %}
+                <div class="g">
+                    <h5>{{g.body}}</h5>
+                    <p>작성자 : {{ g.writer }}</p>
+                    <p>{{g.pub_date}}</p>
+                    {% if user.username == g.writer.username %}
+                    <a href="{% url 'main:delete_guestbook' g.id %}">삭제하기</a>
+                    {% endif %}
+                </div>
+                <hr>
+                {% endfor %}
+            </div>    
+            {% if user.is_authenticated %}
+            <div class="new">
+                <h5>방명록 작성하기</h5>
+                <section>
+                    <form action="{%url 'main:create_guestbook'%}" method="post" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <textarea type="text" name="body" id="" cols="30" rows="3"></textarea>
+                        <button type="submit">완료</button>
+                    </form>
+                </section>
+            </div>
+            {% else %}
+            <div class="nonmessage">
+                <h5>로그인을 먼저 해주세요.</h5>
+            </div>
+            {% endif %}
+        </div>
     </content>
     {% include 'shared/_footer.html' %}
 </body>

@@ -6,55 +6,24 @@ a {
     text-decoration:none;
     color: black;
 }
-header {
-    padding: 40px 60px;
-    text-align: center;
-    border-bottom: black 2px solid;
-}
-header h1 {
-    font-size: 48px;
-}
 content {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 div.content {
     padding: 24px;
 }
-footer .container{
-    padding: 20px 10px;
-    border-top: black 2px solid;
+.guestbook {
+    padding: 24px;
+    text-align: center;
+    border-left: 2px solid #ced4da;
 }
-.grid-column-4{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+.guestbooks{
+    padding: 12px;
 }
-footer > .container > div{
-    text-align:right;
-    padding:0px 10px;
-    border-right:black 2px solid;
+.g {
+    margin: 20px 0;
 }
-footer > .container > div > div{
-    margin: 8px 0;
-}
-.grid-column-12{
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
-.grid-1{
-    grid-column:1/8;
-}
-header a{
-    display:block;
-    text-align: left;
-    margin:8px;
-}
-.grid-10_11{
-    grid-column: 10/12;
-}
-.grid-11{
-    grid-column-start:11;
-}
-.grid-12{
-    grid-column-start:12;
+.new, .nonmessage{
+    padding: 12px 0;
 }

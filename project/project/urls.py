@@ -25,4 +25,6 @@ urlpatterns = [
     path('', include('main.urls')),
     path('accounts/', include('allauth.urls')),
     path('users/', include('users.urls')),
+    path('like_toggle/<int:post_id>/', views.like_toggle, name="like_toggle"),
+    path('dislike_toggle/<int:post_id>/', views.dislike_toggle, name="dislike_toggle"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
