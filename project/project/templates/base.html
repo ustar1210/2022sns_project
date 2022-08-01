@@ -33,7 +33,7 @@
                 {% for g in guestbooks %}
                 <div class="g">
                     <h5>{{g.body}}</h5>
-                    <p>작성자 : {{ g.writer }}</p>
+                    <p><a href="{% url 'users:mypage' g.writer.id %}">작성자 : {{ g.writer }}</a></p>
                     <p>{{g.pub_date}}</p>
                     {% if user.username == g.writer.username %}
                     <a href="{% url 'main:delete_guestbook' g.id %}">삭제하기</a>

@@ -80,7 +80,7 @@
                 {% for comment in comments %}
                 <div>
                     <h5>{{comment.content}}</h5>
-                    <p>작성자 : {{comment.writer}}</p>
+                    <p><a href="{% url 'users:mypage' comment.writer.id %}">작성자 : {{comment.writer}}</a></p>
                     {% if comment.writer == user %}
                     <a href="{% url 'main:edit_comment' post.id comment.id %}"><strong>수정하기 &nbsp</strong></a>
                     <a href="{% url 'main:delete_comment' post.id comment.id %}"><strong>삭제하기</strong></a>

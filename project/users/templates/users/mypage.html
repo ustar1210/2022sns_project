@@ -10,11 +10,18 @@
         <h2><a href="{%url 'main:new'%}">글 쓰기</a></h2>
     </div>
     <h1>{{user.username}}</h1>
+    {% if request.user != user %}
+        {% if request.user.profile in user.profile.followers.all %}
+        <a href="{% url 'users:follow' user.id %}"><button type="button" class="btn btn-outline-info">언팔로우</button></a>
+        {% else %}
+        <a href="{% url 'users:follow' user.id %}"><button type="button" class="btn btn-info">팔로우</button></a>
+        {% endif %}
+    {% endif %}
     <div>
     {% if posts %}
 
-    {% for post in posts %}
-        <a href="{% url 'main:detail' post.id %}">{{post.title}}</a><hr>
+    {% for comment in comments %}
+        <a href="{% url 'main:detail' comment.post.id %}">{{comment.content}}</a><hr>
     {% endfor %}
     
     {% else %}
@@ -23,6 +30,17 @@
         </div>
     </div>
     {% endif %}
+
+    <div class="container">
+        <h3>팔로워{{user.profile.followers.count}}명</h3>
+        {% for follower in user.profile.follwers.all %}
+            <a href="{% url 'users:mypage' follower.user.id %}">{{follower.user.username}}</a>
+        {% endfor %}
+        <h3>팔로잉{{user.profile.followings.count}}명</h3>
+        {% for following in user.profile.follwings.all %}
+            <a href="{% url 'users:mypage' follower.user.id %}">{{following.user.username}}</a>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

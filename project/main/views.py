@@ -10,10 +10,9 @@ import json
 
 def showindex(request):
     posts = Post.objects.all()
-    guestbooks = Guestbook.objects.all()
     return render(request, 'main/index.html',{
         'posts':posts,
-        'guestbooks': guestbooks,
+        'guestbooks': Guestbook.objects.all()
 
         })
  
